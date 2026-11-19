@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ViceOS · Business Ledger</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <aside>
+      <a class="brand" href="/">VICE<span>OS</span></a>
+      <p class="caption">BY DACITY CAPITAL</p>
+      <div class="nav">↗ &nbsp; Business ledger</div>
+      <p class="side-note">A clearer view of<br />your city's businesses.</p>
+    </aside>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">DEALERSHIP OPERATIONS</p>
+          <h1>Business ledger</h1>
+          <p class="muted">Know what moved. Know what you earned.</p>
+        </div>
+        <span class="badge">READ-ONLY DEMO</span>
+      </header>
+      <section class="notice">
+        <strong>Sample data only.</strong> Fictional in-game currency, not real
+        money. No server connection, payments or balance writes.
+      </section>
+      <section class="filters">
+        <label>From<input type="date" id="from" value="2026-11-01" /></label
+        ><label>Through<input type="date" id="to" value="2026-11-30" /></label
+        ><label
+          >Salesperson<select id="agent">
+            <option value="">All salespeople</option>
+          </select></label
+        ><button id="reset">Reset</button
+        ><button id="export">Export sales CSV</button>
+      </section>
+      <p id="error" role="alert"></p>
+      <section id="stats" class="stats" aria-live="polite"></section>
+      <section class="panel">
+        <div class="section-head">
+          <h2>Sales activity</h2>
+          <span id="count" class="muted"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Vehicle</th>
+                <th>Salesperson</th>
+                <th>Revenue</th>
+                <th>Acquisition cost</th>
+                <th>Commission</th>
+                <th>Contribution</th>
+              </tr>
+            </thead>
+            <tbody id="sales"></tbody>
+          </table>
+        </div>
+      </section>
+      <div class="split">
+        <section class="panel">
+          <h2>Inventory on hand</h2>
+          <p class="muted">
+            All dealership stock as of end date, regardless of salesperson.
+          </p>
+          <div id="inventory"></div>
+        </section>
+        <section class="panel">
+          <h2>Operating expenses</h2>
+          <p class="muted">
+            Dealership-wide expenses within the selected dates.
+          </p>
+          <div id="expenses"></div>
+        </section>
+      </div>
+      <footer>
+        Revenue − cost of vehicles sold − commissions − operating expenses = net
+        profit.<br />Unsold inventory is held at acquisition cost, not deducted
+        again from profit. No tax, financing, depreciation or refunds modeled
+        yet.
+      </footer>
+    </main>
+  </body>
+</html>
